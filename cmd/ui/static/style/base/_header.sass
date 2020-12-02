@@ -1,0 +1,88 @@
+@charset "UTF-8"
+
+/* HEADER START*/
+.header
+  background-color: $bkg-grey-color
+  border-bottom: 1px solid $border-line-light-color
+  width: 100%
+  // фиксируем шапку сайта для mobile & tablet
+  position: fixed
+  z-index: 100
+  top: 0
+
+  @media only screen and (min-width: $tablet-content-width)
+    position: unset
+
+.header__container
+  display: flex
+  justify-content: space-between
+  height: 54px
+  padding: 0 15px
+  @media only screen and (min-width: $tablet-content-width)
+    height: 65px
+    padding: 0 30px
+  @media only screen and (min-width: $desktop-content-width + 40px)
+    padding: 0 10px
+
+.header__left
+  position: relative
+  display: flex
+  align-items: center
+  width: 100%
+
+.header__logo
+  background: url(../../images/logo/logo-mobile.svg) no-repeat center
+  background-size: contain
+  width: 33px
+  height: 33px
+  @media only screen and (min-width: $tablet-content-width)
+    background: url(../../images/logo/logo.svg) no-repeat center
+    background-size: contain
+    width: 130px
+    height: 40px
+    margin-left: 5px
+
+.header__right
+  display: flex
+  align-items: center
+
+.header__menu
+  margin-right: 10px
+
+.header__user
+  position: relative
+  display: flex
+  height: 100%
+  align-items: center
+  cursor: pointer
+  .menu-list
+    margin-top: 20px
+    right: -5px
+    margin-right: 5px
+  a
+    text-decoration: none
+
+.user__icon
+  width: 32px
+  height: 32px
+  padding-top: 5px
+  font-size: 22px
+  text-align: center
+  color: $font-grey-color
+  transition: all 0.3s ease-in-out
+  &:hover
+    color: $main-blue-color
+    opacity: 1
+
+.user__avatar
+  width: 50px
+  height: 50px
+  img
+    width: 100%
+    border-radius: 15%
+
+.hidden-menu
+  right: 6px
+  top: 6px
+
+/* HEADER FINISH */

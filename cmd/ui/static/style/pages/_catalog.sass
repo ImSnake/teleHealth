@@ -1,0 +1,131 @@
+@charset "UTF-8"
+
+.catalog,
+.doctor
+  margin-bottom: 150px
+
+  .specialisation-box
+    margin-top: 30px
+    margin-bottom: 35px
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    max-width: unset
+    @media (min-width: $desktop-content-width)
+      margin-top: 30px
+      margin-bottom: 0
+
+    .head-title
+      font-size: 14px
+      width: unset
+      margin-right: 15px
+      font-weight: 700
+      margin-bottom: 0
+      text-shadow: unset
+
+    form
+      max-width: 450px
+
+    .select-cover
+      min-width: 300px
+      max-width: 450px
+      @media (min-width: $desktop-content-width)
+        min-width: unset
+
+    select
+      width: 100%
+      border: 2px solid $main-blue-color
+      background-color: #ffffff
+
+    select:required:invalid,
+    option:disabled
+      color: $main-blue-color
+      font-size: 15px
+
+.catalog
+  //.head-title
+    margin-top: 10px
+.catalog__section
+  display: flex
+  flex-wrap: wrap
+  @media (min-width: $desktop-content-width)
+    display: block
+
+.catalog__block
+  min-width: 320px
+  max-width: 325px
+  min-height: 325px
+  margin: 10px 10px 25px 0
+  @media (min-width: $desktop-content-width)
+    max-width: $desktop-content-width
+    min-height: 135px
+  a
+    text-decoration: none
+
+.catalog__field
+  @include box-deep-shadow
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-wrap: wrap
+  background-color: #ffffff
+  border: 3px solid $main-blue-color
+  padding: 15px 45px 15px 25px
+  border-radius: 15px
+  line-height: 200%
+  height: 100%
+
+.field__info
+  display: flex
+  justify-content: center
+  flex-direction: column
+  text-align: center
+  align-items: center
+  font-size: 16px
+  font-weight: 600
+  color: $main-blue-color
+  @media (min-width: $desktop-content-width)
+    flex-direction: row
+    justify-content: flex-start
+    text-align: left
+
+.cat_doc_avatar
+  margin-bottom: 15px
+  border-radius: 50%
+  width: 100px
+  height: 100px
+  @media (min-width: $desktop-content-width)
+    margin-bottom: 0
+    margin-right: 25px
+  img
+    width: 100%
+    border-radius: 50%
+    border: 3px solid $main-blue-color
+
+.cat_doc_name,
+.cat_doc_patronymic,
+.cat_doc_surname
+  font-size: 21px
+
+.field__status
+  width: 100%
+  text-align: center
+  margin-top: 15px
+  font-size: 16px
+  font-weight: 600
+  color: $main-blue-color
+  @media (min-width: $desktop-content-width)
+    width: unset
+    text-align: left
+    margin-top: 0
+
+  .cat_doc_rating
+    margin-top: 5px
+
+  .star-estimation::before,
+  .star-estimation-half::before,
+  .star-estimation-empty::before
+    width: 17px
+    height: 17px
+    background-size: 15px
+    background-position-y: 3px

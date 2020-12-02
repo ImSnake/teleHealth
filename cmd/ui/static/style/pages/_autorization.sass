@@ -1,0 +1,142 @@
+@charset "UTF-8"
+
+//====== AUTHORIZATION PAGE  ===============================================
+
+.authorization
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 5% 0 0 0
+  //height: 100%
+  @media only screen and (min-width: $tablet-content-width)
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
+    //margin-bottom: 100px
+    //padding: 30px 20px 70px 20px
+
+  .login,
+  .register
+    flex: 1
+    width: 100%
+    min-width: 300px
+    max-width: 400px
+    position: relative
+
+    button
+      line-height: 40px
+      span
+        font-size: 15px
+
+  .head-title
+    font-size: 22px
+
+  .form-comment
+    //display: none
+    padding-left: 3px
+    //padding-top: 3px
+    margin-bottom: 20px
+
+.authorization__form
+  background-color: $bkg-grey-color
+  border-radius: 10px
+  @include box-deep-shadow
+  transition: all 0.3s linear
+  &:first-child
+    margin-bottom: 40px
+  @media only screen and (min-width: $tablet-content-width)
+    margin: 0 3%
+
+  .authorization__field
+    margin-top: 5px
+    margin-bottom: 18px
+
+  .info-field__head
+    display: inline-block
+    color: $font-grey-color
+    text-transform: lowercase
+    font-size: 14px
+    padding-bottom: 1px
+    font-weight: 400
+
+  &.register
+    position: relative
+    padding: 20px 25px 40px 25px
+    @media only screen and (min-width: 1000px)
+      padding: 35px 35px 40px 35px
+
+  &.login
+    padding: 25px 25px 35px 25px
+    @media only screen and (min-width: 1000px)
+      padding: 30px 35px 35px 35px
+    //p
+      padding-top: 10px
+    .restore-password
+      text-align: center
+      margin-top: 15px
+      a
+        font-size: 14px
+        color: $main-blue-color
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+
+  form
+    margin: 0 auto
+    input,
+    select
+      width: 100%
+      margin-bottom: 3px
+
+    #name,
+    #given-name,
+    #surname
+      text-transform: capitalize
+
+    label
+      display: block
+      padding-left: 3px
+      padding-bottom: 1px
+      margin-bottom: 0
+      font-size: 14px
+      font-weight: 400
+      color: $font-grey-color
+      opacity: 0.85
+
+    label[for='add-password']
+      margin-top: 15px
+
+    .info-field__content
+      color: $font-grey-color
+      line-height: 1.3em
+      padding-bottom: 7px
+
+    button
+      display: flex
+      justify-content: center
+      margin: 0 auto
+      margin-top: 35px
+
+    .register__doctor
+      display: flex
+      align-items: center
+      margin-bottom: 20px
+      margin-top: 30px
+      padding-left: 3px
+      text-transform: uppercase
+      div:last-child label
+        color: $main-blue-color
+        font-weight: 800
+        font-size: 22px
+        margin-left: 10px
+      label:hover
+        cursor: pointer
+
+      .authorization__field
+        margin-bottom: 25px
+
+  &.login
+    .link
+      line-height: 150%
+      text-align: center
+      margin-top: 10px

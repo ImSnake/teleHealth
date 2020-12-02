@@ -1,0 +1,42 @@
+{{define "contentBlock"}}
+    <div class="container specialisation">
+
+        <div class="specialisation-block">
+
+            <h2 class="head-title">ПОПУЛЯРНЫЕ СПЕЦИАЛИЗАЦИИ</h2>
+
+            <div class="specialisation__popular">
+
+                <a href="/catalog/1">
+                    <div class="popular__box">Врач общей практики<br>(терапевт)</div>
+                </a>
+
+                <a href="/catalog/9">
+                    <div class="popular__box">Инфекционист</div>
+                </a>
+
+                <a href="/catalog/19">
+                    <div class="popular__box">Психотерапевт</div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div id="specsBox" class="specialisation-box">
+
+            <h2 class="head-title">НАЙТИ ВРАЧА</h2>
+
+            <form name="selectSpecification" method="post" action="#">
+                <div class="select-cover">
+                    <select id="specs-action" name="specialisation" required>
+                        <!--не удалять в option disabled значение атрибута value="" -->
+                        <option value="" disabled selected>выбрать из списка</option>
+                    </select>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+{{end}}

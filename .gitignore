@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+#!cmd/ui/static/style/base/*.sass
+#!cmd/ui/static/style/pages/*.sass
+.idea/
+cmd/ui/static/style/*/.[sass]

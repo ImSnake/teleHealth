@@ -1,0 +1,296 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--"shrink-to-fit=no" - для iOS, max & min scale не позволяют моб.браузеру преобразовать содержимое, "user-scalable=no" - запрещает пользователю менять масштаб сайта-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no"/>
+
+
+    <title>Med-Online - {{ .Title}}</title>
+    <meta name="description" content="Консультации квалифицированных врачей в удаленном режиме (он-лайн)">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/style/normalize.css">
+    <!-- загрузка шрифтов -->
+    <link rel="stylesheet" href="/static/style/base/fonts.css">
+    <!-- стили для хедера, футера и повторяющихся элементов  -->
+    <link rel="stylesheet" href="/static/style/base/base.css">
+    <!-- стили для страниц сервиса  -->
+    <link rel="stylesheet" href="/static/style/pages/pages.css">
+    <!-- connect web icon fonts icofont and fontello/ -->
+    <link rel="stylesheet" href="/static/style/web-fonts/fontello/css/fontello.css">
+    <link rel="stylesheet" href="/static/style/web-fonts/icofont/icofont.min.css">
+    <link rel="stylesheet" href="/static/style/web-fonts/aicon/style.css">
+    <link rel="stylesheet" href="/static/js/jquery/css/jquery-nao-calendar.css">
+    <!--бибилиотека jQuery и плагины-->
+    <script src="/static/js/jquery/jq.js"></script>
+</head>
+
+<body>
+
+<!--Шапка-->
+<header class="header">
+
+    <div class="container header__container">
+
+        <div class="header__left">
+
+            <a href="/">
+                <div class="header__logo"></div>
+            </a>
+
+        </div>
+
+        <div class="header__right">
+
+            <div id="header-menu" class="header__menu" data-auth="{{.Session}}" data-doctor="{{.User.Doctor}}" data-id="{{.User.ID}}" data-photo_url="{{.User.AvatarURI}}">
+
+                <div class="header__user">
+
+                    <div id="user-unknown" class="hide-element">
+
+                        <div class="user__icon">
+                            <i class="icofont-user"></i>
+                        </div>
+
+                        <div class="menu-list right fade hide-element">
+                            <span class="close-pop-up"></span>
+                            <div><span data-href="#auth">Войти</span></div>
+                            <div><span data-href="#signup">Регистрация</span></div>
+                        </div>
+
+                    </div>
+
+                    <div id="user-authorized" class="hide-element">
+
+                        <div class="user__avatar">
+                            <img id="userAvatar" src="/static/images/avatars/avatar.png" alt="user-avatar">
+                        </div>
+
+                        <div class="menu-list right fade hide-element">
+                            <span class="close-pop-up"></span>
+                            <div><a href="/profile">Профиль</a></div>
+                            <div><span id="logout" data-href="#logout">Выход</span></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!--контент сервиса-->
+<div class='center'>
+
+    {{template "contentBlock" .}}
+
+</div>
+
+<!--подвал-->
+<footer class="footer">
+
+    <div class="container footer-container">
+
+        <div class="footer-nav">
+
+            <div class="footer_nav__row">
+                <a href="#" class="footer-nav__item">Пациентам</a>
+                <a href="#" class="footer-nav__item">Врачам</a>
+            </div>
+
+            <div class="footer_nav__row">
+                <a href="#" class="footer-nav__item">Правила сервиса</a>
+                <a href="#" class="footer-nav__item">Контакты</a>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <div class="footer__social-links">
+                <a href="#"><i class="icon-facebook-rect"></i></a>
+                <a href="#"><i class="icon-instagram-4"></i></a>
+                <a href="#"><i class="icon-telegram"></i></a>
+            </div>
+
+            <div class="footer__copyright">
+                <div>&copy;&nbsp;МЕДИЦИНА - ONLINE,&nbsp;<span id="year"></span></div>
+            </div>
+
+            <p style="color: #db6f1d; font-size: 12px; text-align: right; display: none;">
+                Страница запроса: {{ .URL}}<br>
+                Темплейт: {{ .Template}}<br>
+                Код ответа сервера: {{ .Status}}<br>
+                Наличие сессии: {{ .Session}}<br>
+                Метод: {{ .Method}}<br>
+                Error: {{ .Error}}</p>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!--форма авторизации-->
+<div id="auth" class="body-disable hide-element">
+
+    <section class="authorization container">
+
+        <div class="authorization__form login">
+
+            <span class="close-pop-up"></span>
+
+            <h2 class="head-title">Войти&nbsp;в&nbsp;кабинет</h2>
+
+            <form method="post" action="#">
+
+                <div class="authorization__field">
+                    <label for="login">Логин</label>
+                    <!-- Для выделения ошибок в форме добавить в Input class="form-red-outline" -->
+                    <input id="login" name="email" type="email" placeholder="email" required>
+                    <div class="form-comment red hide-element">Неверный логин или пароль</div>
+                </div>
+
+                <div class="authorization__field">
+                    <label for="password">Пароль</label>
+                    <input id="password" name="password" type="password" required>
+                    <div class="form-comment red hide-element">Неверный логин или пароль</div>
+                </div>
+
+                <div>
+                    <button class="btn-blue" type="submit">
+                        <span>Войти</span>
+                    </button>
+
+                    <!-- элемент отключен до момента реализации проекта -->
+                    <!--                    <div class="restore-password">
+                                            <a href="#">Забыли пароль?</a>
+                                        </div>-->
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!--форма регистрации-->
+<div id="signup" class="body-disable hide-element">
+
+    <section class="authorization container">
+
+        <div class="authorization__form register">
+
+            <span class="close-pop-up"></span>
+
+            <h2 class="head-title">Регистрация</h2>
+
+            <form method="post" action="#">
+
+                <div class="authorization__field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="логин для входа" required>
+                </div>
+
+                <div class="authorization__field">
+                    <label for="add-password">Пароль</label>
+                    <input id="add-password" name="add-password" type="password" placeholder="не менее 6 символов"
+                           required>
+                </div>
+
+                <div class="authorization__field">
+                    <label for="repeat-password">Повторить пароль</label>
+                    <!-- Для выделения ошибок в форме добавить в Input class="form-red-outline" -->
+                    <input id="repeat-password" type="password" placeholder="не менее 6 символов" required>
+                    <div id="pass-message" class="form-comment red"></div>
+                </div>
+
+                <div class="register__doctor">
+
+                    <div>
+                        <input id="doctor-true" name="doctor-true" type="checkbox">
+                        <label for="doctor-true"></label>
+                    </div>
+
+                    <div><label for="doctor-true">Я - Доктор</label></div>
+
+                </div>
+
+                <div id="doctor-data" class="hide-element">
+
+                    <div class="authorization__field">
+                        <label for="name">Контактное лицо</label>
+                        <input class="doctor-data" id="name" name="name" type="text" placeholder="имя">
+                        <div class="form-comment red hide-element">Добавьте имя</div>
+                        <input class="doctor-data" id="patronymic" name="patronymic" type="text" placeholder="отчество">
+                        <div class="form-comment red hide-element">Добавьте отчество</div>
+                        <input class="doctor-data" id="surname" name="surname" type="text" placeholder="фамилия">
+                        <div class="form-comment red hide-element">Добавьте фамилию</div>
+                    </div>
+
+                    <div class="authorization__field">
+                        <label for="birthday">Дата&nbsp;рождения</label>
+                        <input class="doctor-data" id="birthday" name="birthday" type="date"
+                               data-placeholder="дд.мм.гггг" aria-required="true">
+                        <div class="form-comment red hide-element">Добавьте дату рождения</div>
+                    </div>
+
+                    <div class="authorization__field">
+                        <label for="specialization">Основная специализация</label>
+                        <div class="select-cover">
+                            <select id="specialization" name="specialization" class="doctor-data">
+                                <!--не удалять в option disabled значение атрибута value="" -->
+                                <option value="" disabled selected>выбрать из списка</option>
+                            </select>
+                        </div>
+                        <div class="form-comment red hide-element">Выберите специализацию из списка</div>
+                    </div>
+
+                    <div class="authorization__field">
+                        <label for="document">Номер диплома или&nbsp;сертификата</label>
+                        <input class="doctor-data" id="document" name="document" type="text" placeholder="">
+                        <div class="form-comment red hide-element">Добавьте номер диплома или&nbsp;сертификата</div>
+                    </div>
+
+                    <div class="authorization__field">
+                        <label for="experience">Стаж по специализации</label>
+                        <input class="doctor-data" id="experience" name="experience" type="number" placeholder="лет" min="0" max="50">
+                        <div class="form-comment red hide-element">Добавьте стаж работы по указанной специализации</div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="btn-orange" type="submit">
+                        <span>Регистрация</span>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!--Подключаем основные js скрипты.-->
+<script src="/static/js/jquery/jquery-nao-calendar.js"></script>
+<script src="/static/js/jquery/jquery-pseudo-ripple.js"></script>
+<script src="/static/js/js.js"></script>
+<script src="/static/js/ajax.js"></script>
+
+</body>
+</html>
+{{end}}

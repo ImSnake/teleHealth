@@ -1,0 +1,56 @@
+/* nunito-200 - latin_cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-200.eot");
+  src: local("Nunito ExtraLight"), local("Nunito-ExtraLight"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-200.eot?#iefix") format("embedded-opentype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-200.woff2") format("woff2"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-200.woff") format("woff"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-200.ttf") format("truetype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-200.svg#Nunito") format("svg");
+}
+/* nunito-300 - latin_cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-300.eot");
+  src: local("Nunito Light"), local("Nunito-Light"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-300.eot?#iefix") format("embedded-opentype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-300.woff2") format("woff2"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-300.woff") format("woff"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-300.ttf") format("truetype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-300.svg#Nunito") format("svg");
+}
+/* nunito-regular - latin_cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-regular.eot");
+  src: local("Nunito Regular"), local("Nunito-Regular"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-regular.eot?#iefix") format("embedded-opentype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-regular.woff2") format("woff2"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-regular.woff") format("woff"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-regular.ttf") format("truetype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-regular.svg#Nunito") format("svg");
+}
+/* nunito-600 - latin_cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-600.eot");
+  src: local("Nunito SemiBold"), local("Nunito-SemiBold"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-600.eot?#iefix") format("embedded-opentype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-600.woff2") format("woff2"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-600.woff") format("woff"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-600.ttf") format("truetype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-600.svg#Nunito") format("svg");
+}
+/* nunito-700 - latin_cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-700.eot");
+  src: local("Nunito Bold"), local("Nunito-Bold"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-700.eot?#iefix") format("embedded-opentype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-700.woff2") format("woff2"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-700.woff") format("woff"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-700.ttf") format("truetype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-700.svg#Nunito") format("svg");
+}
+/* nunito-800 - latin_cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-800.eot");
+  src: local("Nunito ExtraBold"), local("Nunito-ExtraBold"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-800.eot?#iefix") format("embedded-opentype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-800.woff2") format("woff2"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-800.woff") format("woff"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-800.ttf") format("truetype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-800.svg#Nunito") format("svg");
+}
+/* nunito-900 - latin_cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-900.eot");
+  src: local("Nunito Black"), local("Nunito-Black"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-900.eot?#iefix") format("embedded-opentype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-900.woff2") format("woff2"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-900.woff") format("woff"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-900.ttf") format("truetype"), url("../web-fonts/fonts/nunito/nunito-v12-latin_cyrillic-900.svg#Nunito") format("svg");
+}

@@ -1,0 +1,87 @@
+@charset "UTF-8"
+
+//====== INDEX PAGE  ===============================================
+
+.specialisation
+  display: flex
+  flex-direction: column
+
+  .specialisation-box
+    order: 1
+    @media (min-width: $desktop-content-width)
+      order: unset
+
+  .head-title
+    margin-top: 25px
+    @media (min-width: $desktop-content-width)
+      margin-top: 50px
+
+  .specialisation-block
+    order: 2
+    margin-top: 25px
+    @media (min-width: $desktop-content-width)
+      order: unset
+      margin-top: 0
+
+  .specialisation__popular
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    margin-top: 10px
+    @media (min-width: $desktop-content-width)
+      justify-content: space-between
+    a
+      text-decoration: none
+      flex-grow: 1
+      margin-bottom: 20px
+      margin-right: 10px
+      min-width: 200px
+      max-width: 300px
+      @media (min-width: $desktop-content-width)
+        margin: 0
+        max-width: 350px
+
+  .popular__box
+    @include box-deep-shadow
+    height: 80px
+    font-size: 14px
+    text-transform: uppercase
+    line-height: 140%
+    font-weight: 600
+    color: #ffffff
+    background-color: $main-blue-color
+    display: flex
+    border: 3px solid $main-blue-color
+    border-radius: 10px
+    align-items: center
+    justify-content: center
+    text-align: center
+    transition: all 0.2s ease-in-out
+    letter-spacing: 0.05em
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+    &:hover
+      letter-spacing: 0.06em
+      color: $main-blue-color
+      background-color: #ffffff
+      box-shadow: unset
+
+  .select-cover
+    min-width: 300px
+    max-width: 500px
+
+    select
+      width: 100%
+      border: 2px solid $main-blue-color
+      background-color: #ffffff
+      min-height: 40px
+      padding: 7px 12px
+      color: $main-blue-color
+      font-size: 16px
+
+  select:required:invalid,
+  option:disabled,
+  option[value=""]
+    color: $main-blue-color
+    font-weight: 300
+    font-size: 15px

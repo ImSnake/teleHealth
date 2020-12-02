@@ -1,0 +1,272 @@
+@charset "UTF-8"
+
+html,
+body
+  height: 100%
+
+// MAIN SETTINGS FOR FONTS AND CONTENT SIZE
+body
+  font-family: $f_nunito
+  font-weight: 300
+  font-size: 15px
+  color: $main-font-color
+  display: flex
+  flex-direction: column
+
+*
+  box-sizing: border-box
+
+*:focus
+  outline: none
+
+ul
+  margin: 0
+  padding-left: 0
+  list-style-type: none
+
+a
+  color: inherit
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  padding: 0
+
+
+// Задаем ширину и отступы содержимого сайта
+.container
+  min-width: $min-site-width
+  width: 100%
+  padding: 0 15px
+  @media only screen and (min-width: $tablet-content-width)
+    padding: 0 30px
+  @media only screen and (min-width: $desktop-content-width)
+    width: $desktop-content-width
+    margin: 0 auto
+  @media only screen and (min-width: $desktop-content-width + 40px)
+    padding: 0 10px
+
+.center
+  flex: 1
+  margin-top: 54px
+  //background-color: $bkg-grey-color
+  @media only screen and (min-width: $tablet-content-width)
+    margin-top: 0
+  @media only screen and (min-width: $desktop-content-width)
+    width: 100%
+
+// стилизация списков для autocomplete
+.ui-autocomplete
+  max-height: 120px
+  max-width: 440px
+  overflow-y: auto
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete
+  height: 100px
+
+
+// стилизация полей формы
+input,
+textarea,
+select
+  background-color: #ffffff
+  padding: 5px 12px
+  border: 1px solid $border-line-light-color
+  border-radius: 8px
+  font-family: $f_nunito
+  color: $main-blue-color
+  font-size: 15px
+  font-weight: 400
+  min-height: 38px
+  height: 100%
+  vertical-align: middle
+  transition: all 0.2s ease-in-out
+  &select
+    cursor: pointer
+
+input[type="email"]
+  text-transform: lowercase
+
+// стилизация placeholder
+// !!! при замене стилей не забывать про классы .unfilled , .default
+textarea::placeholder,
+input::placeholder,
+input::-webkit-input-placeholder,
+select:required:invalid,
+option:disabled
+  color: $font-grey-color
+  font-weight: 300
+  font-size: 14px
+  //opacity: 0.7
+  //letter-spacing: 0.2px
+
+input:focus,
+select:focus,
+textarea:focus
+  //color: $main-font-color
+  font-weight: 400
+  font-size: 15px
+  @include form-focus-inset
+
+option
+  color: $main-blue-color
+  font-size: 16px
+  font-weight: 400
+
+textarea
+  resize: vertical
+
+// не показывать стрелки по умолчанию
+select,
+input[type="date"]
+  margin: 0
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  -webkit-appearance: none
+  -moz-appearance: none
+
+// стилизация placeholder для полей ввода даты
+input[type="date"]
+  background-color: #ffffff
+  padding: 6px 2px 6px 12px
+  &::before
+    content: attr(data-placeholder)
+    width: 100%
+    color: $font-grey-color
+    //opacity: 0.7
+    font-weight: 300
+    font-size: 15px
+/* hide our custom/fake placeholder text when in focus to show the default
+ * 'mm/dd/yyyy' value and when valid to show the users' date of birth value.
+ */
+input[type="date"]:focus::before,
+input[type="date"]:valid::before
+  display: none
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+input[type="number"]
+  -moz-appearance: textfield
+
+input[type="file"],
+input[type="url"]
+  border: none
+
+// стили для чекбоксов и радио-кнопок
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked),
+input[type="radio"]:checked,
+input[type="radio"]:not(:checked)
+  display: none
+
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label
+  display: inline-block
+  position: relative
+  cursor: pointer
+  padding-left: 27px
+  min-height: 20px
+  min-width: 20px
+  span
+    display: flex
+    min-height: 22px
+    align-items: center
+
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before
+  content: ""
+  position: absolute
+  width: 20px
+  height: 20px
+  border-radius: 5px
+  background-color: #ffffff
+  margin-left: -27px
+  border: 1px solid $border-line-pr-color
+  -webkit-box-shadow: 0 0 8px -1px $border-line-color inset
+  -moz-box-shadow: 0 0 8px -1px $border-line-color inset
+  box-shadow: 0 0 8px -1px $border-line-color inset
+
+input[type="checkbox"]:disabled + label
+  //color: $font-light-grey-color
+  cursor: default
+
+input[type="checkbox"]:disabled + label:before
+  background-color: $bkg-grey-color
+  border: 1px solid $border-line-color
+
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after
+  left: 5px
+  top: 6px
+  width: 9px
+  height: 4px
+  border-radius: 1px
+  border-left: 4px solid $main-blue-color
+  border-bottom: 4px solid $main-blue-color
+  -webkit-transform: rotate(-45deg)
+  -moz-transform: rotate(-45deg)
+  -o-transform: rotate(-45deg)
+  -ms-transform: rotate(-45deg)
+  transform: rotate(-45deg)
+
+input[type="radio"]:checked + label,
+input[type="radio"]:not(:checked) + label
+  display: flex
+  align-items: center
+  position: relative
+  cursor: pointer
+  padding-left: 27px
+  height: 100%
+  span
+    display: flex
+    min-height: 20px
+    max-height: inherit
+    align-items: center
+
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before
+  content: ""
+  position: absolute
+  width: 20px
+  height: 20px
+  border-radius: 100%
+  background-color: #ffffff
+  margin-left: -27px
+  border: 1px solid $border-line-pr-color
+  -webkit-box-shadow: 0 0 8px -1px $border-line-color inset
+  -moz-box-shadow: 0 0 8px -1px $border-line-color inset
+  box-shadow: 0 0 8px -1px $border-line-color inset
+
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after
+  left: 4px
+  top: 4px
+  width: 14px
+  height: 14px
+  border-radius: 100%
+  background-color: $main-blue-color
+
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after,
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after
+  content: ""
+  position: absolute
+  -webkit-transition: all 0.3s ease-in-out
+  -moz-transition: all 0.3s ease-in-out
+  -o-transition: all 0.3s ease-in-out
+  transition: all 0.3s ease-in-out
+
+input[type="checkbox"]:not(:checked) + label:after,
+input[type="radio"]:not(:checked) + label:after
+  opacity: 0
+
+input[type="checkbox"]:checked + label:after,
+input[type="radio"]:checked + label:after
+  opacity: 1

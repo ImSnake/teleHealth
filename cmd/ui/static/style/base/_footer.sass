@@ -1,0 +1,73 @@
+@charset "UTF-8"
+
+/* FOOTER START */
+.footer
+  z-index: 999
+  background-color: $bkg-grey-color
+  border-top: 1px solid $border-line-light-color
+
+.footer-container
+  display: flex
+  width: unset
+  height: 100%
+  padding: 20px 15px
+  @media (min-width: $tablet-content-width)
+    padding: 30px
+  @media only screen and (min-width: $desktop-content-width +40px)
+    width: $desktop-content-width
+
+.footer-nav
+  color: $font-grey-color
+  opacity: 0.8
+  @media only screen and (min-width: $tablet-content-width)
+    flex: 2
+    display: flex
+    width: 100%
+
+.footer_nav__row
+  @media only screen and (min-width: $tablet-content-width)
+    flex: 0.3
+    //margin-right: 8%
+    //&:last-child
+      margin-right: 0
+
+.footer-nav__item
+  display: block
+  padding: 5px
+  font-size: 14px
+  font-weight: 400
+  text-decoration: none
+  &:hover, &:focus, &:active
+    text-decoration: underline
+    color: $main-blue-color
+
+.footer-right
+  flex: 1
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  justify-content: space-between
+  margin-top: 10px
+  margin-bottom: 10px
+  @media only screen and (min-width: $tablet-content-width)
+    margin-top: 0
+    margin-bottom: 0
+
+.footer__social-links
+  display: flex
+  font-size: 24px
+  a
+    margin-left: 30px
+  i
+    color: $font-grey-color
+    transition: all 0.2s ease-in-out
+    &:hover, &:focus, &:active
+      color: $main-blue-color
+      opacity: 1
+
+.footer__copyright
+  color: $font-grey-color
+  font-size: 13px
+  font-weight: 300
+
+/* FOOTER FINISH */

@@ -1,0 +1,62 @@
+{{define "contentBlock"}}
+<div class="container catalog">
+
+    <div id="specsBox" class="specialisation-box">
+
+        <h2 class="head-title">НАЙТИ ВРАЧА</h2>
+
+        <form name="selectSpecification" method="post" action="#">
+            <div class="select-cover">
+                <select id="specs-action" name="specialisation" required>
+                    <!--не удалять в option disabled значение атрибута value="" -->
+                    <option value="" disabled selected>выбрать из списка</option>
+                </select>
+            </div>
+        </form>
+
+    </div>
+
+    <section id="doctorsList" class="catalog__section">
+
+        <h1 id="specsHeading" class="head-title"></h1>
+
+    </section>
+
+    <!-- темплейт для рендеринга блоков каталога -->
+    <div class="catalog__block template hide-element">
+        <a href="#" class="cat_doc_id">
+
+            <div class="catalog__field">
+
+                <div class="field__info">
+
+                    <div class="cat_doc_avatar">
+                        <img src="/static/images/avatars/avatar.png" alt="avatar" title="avatar">
+                    </div>
+
+                    <div>
+                        <div>
+                            <span class="cat_doc_name"></span>
+                            <span class="cat_doc_patronymic"></span>
+                            <span class="cat_doc_surname"></span>
+                        </div>
+                        <div>Стаж:&nbsp;<span class="cat_doc_exp"></span>&nbsp;лет</div>
+                    </div>
+
+                </div>
+
+                <div class="field__status">
+
+                    <div class="cat_doc_rating">
+                       <!-- <span>Рейтинг&nbsp;</span>-->
+                    </div>
+
+                    <div>Отзывы&nbsp;(<span class="cat_doc_reviews"></span>)</div>
+
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>
+{{end}}

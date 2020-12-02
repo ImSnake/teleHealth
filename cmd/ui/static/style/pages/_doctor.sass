@@ -1,0 +1,386 @@
+@charset "UTF-8"
+
+.doctor__section
+  //padding-top: 40px
+
+.doctor__info
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  max-width: 520px
+  color: $main-blue-color
+  @media (min-width: $desktop-content-width)
+    max-width: 620px
+
+  .doc_avatar
+    width: 170px
+    height: 170px
+    margin-right: 30px
+    img
+      width: 100%
+
+  .star-estimation::before,
+  .star-estimation-half::before,
+  .star-estimation-empty::before
+    width: 16px
+    height: 16px
+    background-size: 14px
+    background-position-y: 3px
+
+  .doc_reviews
+    cursor: pointer
+    display: inline-block
+    &:hover
+      text-decoration: underline
+      font-weight: 400
+
+  .doc_about
+    width: 100%
+
+.doctor
+  position: relative
+  margin-top: 20px
+  @media (min-width: $desktop-content-width)
+    margin-top: 35px
+
+  .specialisation-box
+    display: none
+    @media (min-width: $desktop-content-width)
+      display: flex
+      position: absolute
+      z-index: 10
+      right: 0
+      margin-top: 3px
+
+  .doctor__info
+    align-items: flex-end
+    font-size: 16px
+    font-weight: 400
+    line-height: 180%
+    @media (min-width: $desktop-content-width)
+      margin-top: 11px
+
+  .doc_avatar
+    margin-bottom: 15px
+    margin-right: 60px
+    @media (min-width: $desktop-content-width)
+      margin-right: 30px
+      margin-bottom: 0
+
+  .doc_name,
+  .doc_surname,
+  .doc_patronymic
+    font-size: 16px
+    font-weight: 700
+    text-transform: uppercase
+    letter-spacing: 0.03em
+
+  .doc_age
+    //margin-top: 2%
+
+  .doc_about
+    margin-top: 26px
+
+.doctor__schedule
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  margin-top: 50px
+  margin-bottom: 80px
+  @include unselectable
+
+.myCalendar td.prevDate
+  opacity: 0.25 !important
+  &:hover
+    background-color: $bkg-grey-color !important
+    color: $main-blue-color !important
+    cursor: default !important
+    box-shadow: none !important
+
+.myCalendar td.prevDate.active
+  box-shadow: unset !important
+  background-color: unset !important
+  color: $main-blue-color !important
+
+.myCalendar
+  color: $main-blue-color
+
+.myCalendar.nao-month
+  @include box-light-shadow
+  min-width: 320px
+  max-width: 520px
+  width: 100%
+  background-color: $bkg-grey-color
+  padding: 10px 0
+  border: 1px solid $border-line-light-color
+  border-radius: 8px
+  @media (min-width: $desktop-content-width)
+    max-width: 620px
+    padding: 25px 30px
+
+.nao-month th
+  padding: 1px 1px 20px 1px !important
+
+.myCalendar.nao-month .month-body
+  margin-top: 25px
+
+.myCalendar.nao-month td.today
+  box-shadow: 0 0 0 3px $main-blue-color inset
+
+.myCalendar.nao-month td
+  padding: 15px
+  &:hover
+    background-color: $light-blue-color
+    color: #ffffff
+
+.myCalendar .month-head > div,
+.myCalendar .month-head > button
+  padding: 15px
+
+.myCalendar .month-head button
+  color: $main-blue-color
+
+.myCalendar .ic-arrow-circle-angle-down,
+.myCalendar .ic-target
+  display: none !important
+
+.myCalendar .month-week
+  font-size: 16px
+
+.myCalendar .month-days
+  font-weight: 600
+  font-size: 18px
+
+.myCalendar.nao-month td.active
+  //box-shadow: 0 0 0 2px $light-blue-color inset
+  background-color: $main-blue-color
+  color: #ffffff
+  font-weight: 700
+  opacity: 1 !important
+  box-shadow: 0 0 0 3px $main-blue-color inset !important
+
+.myCalendar.nao-month td.active.available
+  background-color: $green-color
+
+.myCalendar.nao-month td.available,
+.schedule__timetable .timetable__hour.available,
+.schedule__minutes .schedule__minutes__item.available
+  background-color: $light-green-color
+  color: #ffffff
+  box-shadow: 0 0 0 2px $green-color inset
+  border-radius: 8px
+  opacity: 0.8
+  &:hover
+    background-color: $green-color
+
+.schedule__group
+  display: flex
+  flex-direction: column
+  margin-top: 15px
+  @media (min-width: $desktop-content-width)
+    margin-left: 10px
+    margin-top: 0
+
+.schedule__timetable
+  @include box-light-shadow
+  max-width: 520px
+  width: 100%
+  color: $main-blue-color
+  background-color: $bkg-grey-color
+  border: 1px solid $border-line-light-color
+  border-radius: 8px
+  height: min-content
+  padding-bottom: 10px
+  margin-bottom: 18px
+  @media (min-width: $desktop-content-width)
+    max-width: 620px
+
+.timetable__row
+  flex-grow: 1
+  display: flex
+  justify-content: center
+  height: 80px
+  line-height: 80px
+  padding-left: 30px
+  padding-right: 30px
+
+.timetable__heading
+  font-size: 16px
+  flex-direction: column
+  line-height: 150%
+  align-items: center
+  justify-content: center
+  padding-top: 10px
+  div:first-child
+    font-weight: 600
+    font-size: 18px
+
+.timetable__hour
+  flex-grow: 1
+  width: 130px
+  font-size: 18px
+  font-weight: 620
+  letter-spacing: 0.04em
+  text-align: center
+  height: 54px
+  line-height: 54px
+  margin: 5px 10px
+  cursor: pointer
+  //&:hover
+    background-color: $light-blue-color
+    color: #ffffff
+    border-radius: 8px
+  &.active
+    box-shadow: 0 0 0 3px $main-blue-color inset !important
+    background-color: $green-color !important
+    opacity: 1 !important
+    color: #ffffff
+    border-radius: 8px
+    font-weight: 700
+    letter-spacing: 0.05em
+  &.blocked
+    cursor: default
+    color: $light-blue-color
+    opacity: 0.4
+    &:hover
+      background-color: unset
+      color: $light-blue-color
+      border-radius: 0
+
+.schedule__minutes
+  @include box-light-shadow
+  display: flex
+  align-items: center
+  max-width: 520px
+  width: 100%
+  height: 100%
+  color: $main-blue-color
+  background-color: $bkg-grey-color
+  border: 1px solid $border-line-light-color
+  border-radius: 8px
+  padding-left: 30px
+  padding-right: 30px
+  @media (min-width: $desktop-content-width)
+    max-width: 620px
+
+.schedule__minutes__item
+  flex-grow: 1
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 5px 20px
+  height: 54px
+  font-size: 21px
+  font-weight: 700
+  letter-spacing: 0.04em
+  cursor: pointer
+  //&:hover
+    background-color: $light-blue-color
+    color: #ffffff
+    border-radius: 8px
+  &.active
+    box-shadow: 0 0 0 3px $main-blue-color inset !important
+    background-color: $green-color !important
+    opacity: 1 !important
+    color: #ffffff
+    border-radius: 8px
+    font-weight: 800
+
+  &.blocked
+    cursor: default
+    color: $light-blue-color
+    opacity: 0.4
+    background-color: unset
+    box-shadow: unset
+    border-radius: 0
+    &:hover
+      background-color: unset
+      color: $light-blue-color
+      border-radius: 0
+
+.schedule__bottom
+  @include box-light-shadow
+  max-width: $desktop-content-width
+  width: 100%
+  text-align: right
+  margin-top: 18px
+  padding-left: 50px
+  padding-right: 45px
+  min-height: 80px
+  line-height: 80px
+  color: $main-blue-color
+  background-color: $bkg-grey-color
+  border: 1px solid $border-line-light-color
+  border-radius: 8px
+
+  .btn-orange
+    text-transform: uppercase
+    font-size: 13px
+    font-weight: 600
+    line-height: 36px
+    letter-spacing: 0.07em
+    padding: 0 30px
+
+.schedule__bottom__text
+  display: inline-block
+  float: left
+  span
+    font-weight: 600
+    font-size: 18px
+    padding-left: 8px
+    word-spacing: 3px
+
+
+.review__section
+  padding: 4% 0 0 0 !important
+
+  .review__box
+    display: flex
+    align-items: baseline
+    border: 2px solid $main-blue-color
+    background-color: #ffffff
+    border-radius: 8px
+    color: $main-blue-color
+    margin-bottom: 20px
+    line-height: 180%
+
+  .review__group
+    padding: 10px 20px
+    min-width: 135px
+    text-align: center
+
+  .review__data
+    //line-height: 200%
+    font-weight: 400
+    font-size: 15px
+
+  .review__rating
+    .star-estimation::before,
+    .star-estimation-half::before,
+    .star-estimation-empty::before
+      width: 14px
+      height: 14px
+      background-size: 12px
+      background-position-y: 2px
+
+  .review__text
+    border-left: 2px solid $main-blue-color
+    padding: 10px 20px
+    font-size: 14px
+    font-weight: 400
+
+  .authorization
+    margin-top: 0
+
+  .pop-up
+    flex: 1
+    width: 100%
+    min-width: 300px
+    max-width: $desktop-content-width
+    position: relative
+    padding: 50px
+    background-color: $bkg-light-grey-color
+    border-radius: 8px
+    max-height: 90vh
+    min-height: 40vh
+    overflow: auto

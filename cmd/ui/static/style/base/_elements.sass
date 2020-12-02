@@ -1,0 +1,364 @@
+@charset "UTF-8"
+
+//====== КЛАССЫ ДЛЯ РАБОТЫ С JS ===============================================
+
+// класс для флекс-открытия элементов через JS
+.flex-element
+  display: flex
+
+// класс для скрытия элементов
+.hide-element
+  display: none !important
+  -webkit-transition: all 0.2s ease
+  -moz-transition: all 0.2s ease
+  -o-transition: all 0.2s ease
+  transition: all 0.2s ease
+
+// класс для скрытия flex-элементов
+.hidden
+  overflow: hidden
+  height: 0
+  -webkit-transition: all 0.2s ease
+  -moz-transition: all 0.2s ease
+  -o-transition: all 0.2s ease
+  transition: all 0.2s ease
+
+// ширма для блокирующих основной экран всплывающих окон
+.body-disable
+  position: fixed
+  z-index: 1000
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(4, 6, 38, 0.5)
+  overflow: auto
+
+//====== КЛАССЫ ФОРМАТИРОВАНИЯ ТЕКСТА ==============================================
+
+.blue
+  color: $main-blue-color
+
+//.light-grey
+  color: $font-light-grey-color
+
+.grey
+  color: $font-grey-color
+
+.green
+  color: $green-color
+
+.orange
+  color: $orange-color
+
+.red
+  color: $red-color
+
+.bold
+  font-weight: 600
+
+.bolder
+  font-weight: 700
+
+.extra-bold
+  font-weight: 800
+
+
+// ссылочные элементы
+.link
+  color: $main-blue-color
+  font-weight: 300
+  text-decoration: underline
+  cursor: pointer
+
+
+//====== ИКОНКИ И ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ==============================================
+
+// стрелки для фильтров и элементов меню
+.icon-left-open-big,
+.icon-right-open-big,
+.icon-down-open-big,
+.icon-up-open-big
+  color: $font-grey-color
+
+// жирные стрелки-указатели для выпадающих элементов
+.down-arr,
+.up-arr
+  position: relative
+  right: -1px
+  font-size: 9px
+  &.down-arr::before
+    content: "\25BC"
+  &.up-arr::before
+    content: "\25B2"
+
+// тонкие стрелки для навигации выпадающих элементов
+.pointer-down,
+.pointer-up,
+.pointer-left,
+.pointer-right
+  display: inline-block
+.pointer-down::before
+  font-family: 'fontello'
+  font-weight: normal
+  font-style: normal
+  content: "\e803"   // .icon-down-open-big:before
+.pointer-up::before
+  font-family: 'fontello'
+  font-weight: normal
+  font-style: normal
+  content: "\e804"  // .icon-up-open-big:before
+.pointer-left::before
+  font-family: 'fontello'
+  font-weight: normal
+  font-style: normal
+  content: "\e91d"  // .icon-left-open-big:before
+.pointer-right::before
+  font-family: 'fontello'
+  font-weight: normal
+  font-style: normal
+  content: "\e91e"  // .icon-right-open-big:before
+
+
+// стилизация select списков (стрелка "вниз")
+.select-cover
+  position: relative
+  //color: $font-grey-color
+  //color: $font-grey-color
+  line-height: 35px
+  &::before
+    position: absolute
+    content: "\25BC"
+    font-size: 9px
+    right: 20px
+    top: 4px
+    height: 1px
+    width: 1px
+    color: $main-blue-color
+
+// стили для стрелки "вверх"
+.select-cover.opened
+  &::before
+    position: absolute
+    content: "\25B2"
+
+// иконка "закрыть"
+.close-pop-up
+  &::before
+    font-family: 'IcoFont'
+    font-weight: normal
+    font-style: normal
+    font-size: 20px
+    color: $font-grey-color
+    content: "\eedd"
+    display: block
+    position: absolute
+    z-index: 1
+    top: 8px
+    right: 8px
+    cursor: pointer
+  &:hover::before
+    color: $main-blue-color
+
+
+// иконки комфорт, динамика, питание, оценка тура
+.star-estimation,
+.star-estimation-empty,
+.star-estimation-half
+  position: relative
+  &::before
+    content: ""
+    display: inline-block
+
+.star-estimation::before
+  background: url(../../images/icons/icon_star.svg) no-repeat
+.star-estimation-empty::before
+  background: url(../../images/icons/icon_star-empty.svg) no-repeat
+.star-estimation-half::before
+  background: url(../../images/icons/icon_star-half.svg) no-repeat
+
+
+//====== СТИЛИ ДЛЯ ВЫПАДАЮЩИХ ЭЛЕМЕНТОВ (меню, списки)===========================
+
+//стили для выпадающих списков и меню
+.menu-list
+  @include unselectable
+  position: absolute
+  z-index: 199
+  min-width: 200px
+  padding-top: 5px
+  background-color: #ffffff
+  border: 1px solid $border-line-light-color
+  border-radius: 12px
+  -webkit-box-shadow:  0 3px 6px rgba(178, 178, 178, 0.16)
+  -moz-box-shadow:  0 3px 6px rgba(178, 178, 178, 0.16)
+  box-shadow: 0 3px 6px rgba(178, 178, 178, 0.16)
+  cursor: default
+  div
+    display: block
+    border-bottom: 1px solid $border-line-light-color
+    &:last-child
+      border: none
+      padding-bottom: 5px
+    a,
+    span
+      display: block
+      font-size: 15px
+      font-weight: 400
+      text-align: center
+      padding: 15px 30px
+      text-decoration: none
+      cursor: pointer
+      &:hover
+        color: $main-blue-color
+        text-decoration: underline
+  //.grey
+    opacity: 0.7
+    span:hover
+      cursor: default
+      color: $font-grey-color
+      text-decoration: unset
+
+  .close-pop-up
+    display: block
+    border: none
+    padding-top: 6px
+    @media only screen and (min-width: 1000px)
+      display: none
+
+  &.right
+    right: 0
+    top: 0
+
+//====== З А Г О Л О В К И ===========================
+
+// Основные заголовки разделов (h2)
+.head-title
+  display: block
+  color: $main-blue-color
+  font-size: 23px
+  font-weight: 800
+  letter-spacing: 0.03em
+  padding: 12px 0
+  text-transform: uppercase
+  width: 100%
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  text-shadow: 0 1px 1px #e6e9ed
+  @media (min-width: $desktop-content-width)
+    font-size: 26px
+// ========= К Н О П К И  ============================================================
+
+.btn-blue,
+.btn-orange,
+.btn-grey,
+.btn-white
+  @include unselectable
+  min-width: 150px
+  max-width: 270px
+  border: none
+  border-radius: 10px
+  cursor: pointer
+  text-align: center
+  transition: all 0.2s ease-in-out
+  padding: 0px 23px
+  line-height: 34px
+  a, span
+    font-size: 14.5px
+    font-weight: 400
+    text-transform: lowercase
+    letter-spacing: 0.5px
+    display: block
+    text-decoration: none
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+  &:hover
+    transform: scale(0.99)
+
+// голубая круглая кнопка
+.btn-blue
+  color: $bkg-light-grey-color
+  //text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)
+  -webkit-background-image: linear-gradient(to top, #07a6cc, #02c2ef)
+  -moz-background-image: linear-gradient(to top, #07a6cc, #02c2ef)
+  background-image: linear-gradient(to top, #07a6cc, #02c2ef)
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1)
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2)
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2)
+  &:hover
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.1)
+    -webkit-background-image: linear-gradient(to top, #00b8e3, #02c2ef)
+    -moz-background-image: linear-gradient(to top, #00b8e3, #02c2ef)
+    background-image: linear-gradient(to top, #00b8e3, #02c2ef)
+    -webkit-box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.3)
+    -moz-box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.3)
+    box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.3)
+
+// оранжевая круглая кнопка
+.btn-orange
+  color: $bkg-light-grey-color
+  text-shadow: 0 1px 1px rgba(0,0,0,0.15)
+  -webkit-background-image: linear-gradient(to bottom, #f97817, #db6f1d)
+  -moz-background-image: linear-gradient(to bottom, #f97817, #db6f1d)
+  background-image: linear-gradient(to bottom, #f97817, #db6f1d)
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
+  &:hover
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+    -webkit-background-image: linear-gradient(to bottom, #f58a38e8, #f97817)
+    -moz-background-image: linear-gradient(to bottom, #f58a38e8, #f97817)
+    background-image: linear-gradient(to bottom, #f58a38e8, #f97817)
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3) inset
+    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3) inset
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3) inset
+
+// серая круглая кнопка
+.btn-grey
+  color: $font-grey-color
+  opacity: 0.8
+  text-shadow: 0 1px 1px rgba(255,255,255,1)
+  background-color: $bkg-light-grey-color
+  -webkit-background-image: linear-gradient(to bottom, #f8f8f8, #e6e9ed)
+  -moz-background-image: linear-gradient(to bottom, #f8f8f8, #e6e9ed)
+  background-image: linear-gradient(to bottom, #f8f8f8, #e6e9ed)
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+  &:hover
+    //color: lighten($font-grey-color, 10%)
+    -webkit-background-image: linear-gradient(to bottom, #e6e9ed, #f8f8f8)
+    -moz-background-image: linear-gradient(to bottom, #e6e9ed, #f8f8f8)
+    background-image: linear-gradient(to bottom, #e6e9ed, #f8f8f8)
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2) inset
+    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2) inset
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2) inset
+
+// белая круглая кнопка
+//.btn-white
+  color: $font-grey-color
+  background-color: #ffffff
+  border: 1px solid $border-line-color
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15)
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15)
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15)
+  &:hover,
+  &:active
+    font-weight: 600
+    background-color: $bkg-grey-color
+
+//------ СТИЛИ ДЛЯ СЕРВИСНЫХ И СЛУЖЕБНЫХ СООБЩЕНИЙ ------------//
+
+//комментарий под полем формы
+.form-comment
+  font-size: 14px
+  font-weight: 300
+  padding-top: 3px
+  line-height: 130%
+
+// подсветка полей формы с ошибкой
+.form-red-outline
+  @include form-focus-red

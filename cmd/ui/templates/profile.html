@@ -1,0 +1,227 @@
+{{define "contentBlock"}}
+<div id="profilePage" class="container profile">
+
+    <section id="userProfile" class="hide-element">
+        <div class="group">
+            <h2 class="head-title">ПРОФИЛЬ ПАЦИЕНТА</h2>
+            <div>Email</div>
+        </div>
+
+        <div class="group">
+            <h2 class="head-title">ДАННЫЕ О ЗАПИСЯХ ПАЦИЕНТА</h2>
+            <div>Нет записей</div>
+        </div>
+    </section>
+
+    <section id="doctorProfile" class="hide-element">
+
+<!--        <div class="init-schedule">
+            <button class="btn-orange">Добавить расписание</button>
+        </div>-->
+
+        <h2 class="head-title">ПРОФИЛЬ ВРАЧА</h2>
+
+        <div class="doctor__info">
+
+            <div class="doc_avatar">
+                <img src="" alt="avatar" title="avatar">
+            </div>
+
+            <div>
+
+                <div class="doc_created_at">дата регистрации:&nbsp;<span></span></div>
+
+                <div>
+                    <span class="doc_surname"></span>&nbsp;<span class="doc_name"></span>&nbsp;<span class="doc_patronymic"></span>
+                </div>
+
+                <div class="doc_birthday">Дата рождения:&nbsp;<span></span></div>
+
+                <div class="doc_rating"><span>Рейтинг&nbsp;</span></div>
+
+                <div class="doc_reviews" data-href="#reviews">Отзывы&nbsp;(<span class="reviews__count"></span>)</div>
+
+            </div>
+
+            <div class="add-avatar">
+                <button class="btn-blue" data-href="#add-avatar">Загрузить фотографию</button>
+            </div>
+
+            <div class="doc_specs">
+                <h3 class="head-title">Специализации</h3>
+                <div class="specs_info template hide-element">
+                    <div class="specs_name"></div>
+                    <div class="specs_exp">Стаж:&nbsp;<span></span>&nbsp;лет</div>
+                    <div class="specs_sert">Документ:&nbsp;<span></span></div>
+                </div>
+            </div>
+
+            <div class="new_specs">
+                <button class="btn-blue" data-href="#add-specs">Добавить специализацию</button>
+            </div>
+
+            <div class="doc_about">
+                <h3 class="head-title">Биография</h3>
+                <form id="docBiography" action="#">
+                    <textarea name="doc_about" id=""></textarea>
+                    <br>
+                    <button class="btn-blue" type="submit">Обновить информацию</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="doctor__schedule">
+
+            <h3 class="head-title">Расписание</h3>
+
+            <div id="myCalendar" class="myCalendar"></div>
+
+            <div id="timetable" class="schedule__group hide-element">
+
+                <div id="timeHour" class="schedule__timetable">
+                    <div class="timetable__row timetable__heading">
+                        <div class="timetable__heading__text"></div>
+                        <div>Отметить доступное для записи время</div>
+                    </div>
+                    <div class="timetable__row">
+                        <div class="timetable__hour">07:00</div>
+                        <div class="timetable__hour">08:00</div>
+                        <div class="timetable__hour">09:00</div>
+                        <div class="timetable__hour">10:00</div>
+                        <div class="timetable__hour">11:00</div>
+                    </div>
+                    <div class="timetable__row">
+                        <div class="timetable__hour">12:00</div>
+                        <div class="timetable__hour">13:00</div>
+                        <div class="timetable__hour">14:00</div>
+                        <div class="timetable__hour">15:00</div>
+                        <div class="timetable__hour">16:00</div>
+                    </div>
+                    <div class="timetable__row">
+                        <div class="timetable__hour">17:00</div>
+                        <div class="timetable__hour">18:00</div>
+                        <div class="timetable__hour">19:00</div>
+                        <div class="timetable__hour">20:00</div>
+                        <div class="timetable__hour">21:00</div>
+                    </div>
+                    <div class="timetable__row timetable__profile">
+                        <div>
+                            <button class="btn-blue check-all">Выбрать все</button>
+                            <button class="btn-grey delete-all">Сбросить все</button>
+                        </div>
+                        <button class="btn-orange refresh">обновить расписание</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--поп-ап для вывода отзывов-->
+    <div id="reviews" class="body-disable hide-element">
+
+        <section class="authorization container review__section">
+
+            <div class="pop-up">
+
+                <span class="close-pop-up"></span>
+
+                <div class="review__box template hide-element">
+                    <div class="review__group">
+                        <div class="review__rating"></div>
+                        <div class="review__data"></div>
+                    </div>
+
+                    <div class="review__text"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!--форма загрузки аватара-->
+    <div id="add-avatar" class="body-disable hide-element">
+
+        <section class="authorization container download-img">
+
+            <div class="authorization__form pop-up">
+
+                <span class="close-pop-up"></span>
+
+                <form id="addAvatar" method="post" action="#" enctype="multipart/form-data">
+
+                    <div class="authorization__field">
+                        <input type="file" id="my-file" name="my-file"
+                               accept=".jpg, .jpeg, .png" size="150" required>
+<!--                        <input type="hidden" id="doctor_id" name="doctor_id">-->
+                    </div>
+
+                    <div>
+                        <button class="btn-blue" type="submit">
+                            <span>Загрузить</span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!--форма для добавления специализации-->
+    <div id="add-specs" class="body-disable hide-element">
+
+        <section class="authorization container add-specs">
+
+            <div class="authorization__form pop-up">
+
+                <span class="close-pop-up"></span>
+
+                <form method="#" action="#">
+
+                    <div class="authorization__field">
+                        <label for="extra-specialization">Дополнительная специализация</label>
+                        <div class="select-cover">
+                            <select id="extra-specialization" name="extra-specialization" class="doctor-data">
+                                <!--не удалять в option disabled значение атрибута value="" -->
+                                <option value="" disabled selected>выбрать из списка</option>
+                            </select>
+                        </div>
+                        <div class="form-comment red hide-element">Выберите специализацию из списка</div>
+                    </div>
+
+                    <div class="authorization__field">
+                        <label for="extra-document">Номер диплома или&nbsp;сертификата</label>
+                        <input class="doctor-data" id="extra-document" name="extra-document" type="text" placeholder="">
+                        <div class="form-comment red hide-element">Добавьте номер диплома или&nbsp;сертификата</div>
+                    </div>
+
+                    <div class="authorization__field">
+                        <label for="extra-experience">Стаж по специализации</label>
+                        <input class="doctor-data" id="extra-experience" name="extra-experience" type="number" placeholder="лет" min="0" max="50">
+                        <div class="form-comment red hide-element">Добавьте стаж работы по указанной специализации</div>
+                    </div>
+
+                    <div>
+                        <button class="btn-blue" type="submit">
+                            <span>Добавить</span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </div>
+</div>
+
+
+
+{{end}}

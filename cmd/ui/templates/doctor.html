@@ -1,0 +1,125 @@
+{{define "contentBlock"}}
+<div class="container doctor">
+
+    <div id="specsBox" class="specialisation-box">
+
+        <h2 class="head-title">НАЙТИ ВРАЧА</h2>
+
+        <form name="selectSpecification" method="post" action="#">
+            <div class="select-cover">
+                <select id="specs-action" name="specialisation" required>
+                    <!--не удалять в option disabled значение атрибута value="" -->
+                    <option value="" disabled selected>выбрать из списка</option>
+                </select>
+            </div>
+        </form>
+
+    </div>
+
+    <section id="doctorPage" class="doctor__section hide-element">
+
+        <h1 id="specsHeading" class="head-title"></h1>
+
+        <div class="doctor__info">
+
+            <div class="doc_avatar">
+                <img src="" alt="avatar" title="avatar">
+            </div>
+
+            <div>
+                <span class="doc_surname"></span>&nbsp;<span class="doc_name"></span>&nbsp;<span class="doc_patronymic"></span>
+
+                <div class="doc_age">Возраст:&nbsp;<span></span>&nbsp;лет</div>
+
+                <div class="doc_exp">Стаж:&nbsp;<span></span>&nbsp;лет</div>
+
+                <div class="doc_rating"><span>Рейтинг&nbsp;&nbsp;</span></div>
+
+                <div class="doc_reviews" data-href="#reviews">Отзывы&nbsp;(
+                    <span class="reviews__count"></span>
+                    )</div>
+            </div>
+
+            <div class="doc_about"></div>
+
+        </div>
+
+        <div class="doctor__schedule">
+
+            <h3 class="head-title">Записаться на прием</h3>
+
+            <div id="myCalendar" class="myCalendar"></div>
+
+            <div id="timetable" class="schedule__group hide-element">
+
+                <div id="timeHour" class="schedule__timetable">
+                    <div class="timetable__row timetable__heading">
+                        <div class="timetable__heading__text"></div>
+                        <div>Выбрать время</div>
+                    </div>
+                    <div class="timetable__row">
+                        <div class="timetable__hour">07:00</div>
+                        <div class="timetable__hour">08:00</div>
+                        <div class="timetable__hour">09:00</div>
+                        <div class="timetable__hour">10:00</div>
+                        <div class="timetable__hour">11:00</div>
+                    </div>
+                    <div class="timetable__row">
+                        <div class="timetable__hour">12:00</div>
+                        <div class="timetable__hour">13:00</div>
+                        <div class="timetable__hour">14:00</div>
+                        <div class="timetable__hour">15:00</div>
+                        <div class="timetable__hour">16:00</div>
+                    </div>
+                    <div class="timetable__row">
+                        <div class="timetable__hour">17:00</div>
+                        <div class="timetable__hour">18:00</div>
+                        <div class="timetable__hour">19:00</div>
+                        <div class="timetable__hour">20:00</div>
+                        <div class="timetable__hour">21:00</div>
+                    </div>
+                </div>
+
+                <div id="timeMinute" class="schedule__minutes hide-element">
+                    <div class="schedule__minutes__item">00</div>
+                    <div class="schedule__minutes__item">15</div>
+                    <div class="schedule__minutes__item">30</div>
+                    <div class="schedule__minutes__item">45</div>
+                </div>
+            </div>
+
+            <div id="timeConfirm" class="schedule__bottom hide-element">
+                <div class="schedule__bottom__text">Дата и время приема: <span></span> </div>
+               <button class="btn-orange">Записаться</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--поп-ап для вывода отзывов-->
+    <div id="reviews" class="body-disable hide-element">
+
+        <section class="authorization container review__section">
+
+            <div class="pop-up">
+
+                <span class="close-pop-up"></span>
+
+                <div class="review__box template hide-element">
+                    <div class="review__group">
+                        <div class="review__rating"></div>
+                        <div class="review__data"></div>
+                    </div>
+
+                    <div class="review__text"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+{{end}}

@@ -1,0 +1,7 @@
+mysql:
+    dbname: "med_online"
+    user: "root"
+    pass: "1240608"
+    host: "88.210.21.76"
+    port: "3360"
+    sslmode: "false"
